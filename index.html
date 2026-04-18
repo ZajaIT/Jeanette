@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vydej se na cestu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #7c8f88;
+  --text: #4a4a4a;
+  --light: #f7f7f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #505038;
+  line-height: 1.7;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+h1, h2, h3 {
+  font-family: 'Lora', sans-serif;
+  color: #74743E;
+  margin-bottom: 20px;
+}
+
+section h2 {
+  margin-bottom: 35px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+#terapie p {
+  margin-bottom: 30px;
+}
+
+#omne p {
+  margin-bottom: 30px;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  gap: 40px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #A8A37E;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 0.5s ease;
+}
+
+.menu a:hover {
+  color: #586D3F;
+}
+
+.burger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 130px 20px;
+  text-align: center;
+
+  background-image: url("Jeanette na ceste_header.JPG");
+  background-size: cover;
+  background-position: center 70%;
+  background-repeat: no-repeat;
+}
+
+.hero-text h1,
+.hero-name,
+.hero-service,
+.hero-text p {
+  color: white;
+}
+
+.hero-text {
+  max-width: 500px;
+  margin-left: 250px;
+  text-align: center;
+}
+
+.hero-text p {
+  margin: 8px 0;
+}
+
+.hero-text p:last-of-type:not(.hero-service) {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #A8A37E;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  transition: background 0.5s ease;
+}
+
+.button:hover {
+  background: #586D3F;
+}
+
+section {
+  padding: 70px 0;
+}
+
+#terapie {
+  padding-bottom: 0;
+}
+
+.pillars {
+  margin-top: 60px;
+}
+
+.pillar {
+  margin-bottom: 50px;
+}
+
+.pillar h3 {
+  margin-bottom: 10px;
+  color: #586D3F;
+  font-size: 26px;
+}
+
+.pillar p {
+  margin: 0;
+  max-width: 600px;
+  color: #3f3f2c;
+  text-shadow:
+  0 1px 2px rgba(255,255,255,0.8),
+  0 -1px 2px rgba(0,0,0,0.15);
+}
+
+.pillars-bg {
+  margin-top: 30px;
+  padding: 30px 20px;
+
+  background:
+  linear-gradient(
+    to right,
+    rgba(247,247,245,0.95) 0%,
+    rgba(247,247,245,0.8) 30%,
+    rgba(247,247,245,0.4) 60%,
+    rgba(247,247,245,0) 100%
+  ),
+  url("Jeanette na ceste_web_2026_26.JPG");
+
+  background-size: cover;
+  background-position: center 30%;
+}
+
+.alt {
+  background: var(--light);
+}
+
+.about-credentials {
+  background: #f0efe8;
+  padding: 40px 0;
+  margin-top: 40px;
+}
+
+.about-credentials .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1160px;
+}
+
+.credentials-left strong {
+  font-family: 'Lora', sans-serif;
+  color: #586D3F;
+  font-weight: 600;
+  font-size: 27px;
+}
+
+.credentials-right strong {
+  font-family: 'Lora', sans-serif;
+  color: #586D3F;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.credentials-logos {
+  display: flex;
+  gap: 40px;
+  margin-top: 25px;
+  margin-left: 40px;
+}
+
+.credentials-logos img {
+  height: 60px;
+  width: auto;
+}
+
+.quote-section {
+  background-image: url("vydej-se-na-cestu-psychoterapie-brno.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 160px 20px;
+  text-align: center;
+}
+
+.quote-text {
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quote-main {
+  font-family: 'Lora', sans-serif;
+  font-size: 36px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.quote-author {
+  font-family: 'Lora', sans-serif;
+  font-size: 18px;
+  opacity: 0.9;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+.info-section p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.6;
+  padding-left: 18px;
+  position: relative;
+}
+
+.info-section p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: #A8A37E;
+  border-radius: 50%;
+}
+
+.info-section p:last-child {
+  margin-bottom: 0;
+}
+
+.info-section {
+  background: #f0efe8;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact a {
+  text-decoration: none;
+  color: #A8A37E; 
+  font-size: 17px; 
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.contact a:hover {
+  color: #586D3F; 
+}
+
+.contact-text {
+  margin-bottom: 10px;
+}
+
+.contact-email {
+  margin: 10px 0 15px;
+}
+
+.email {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-email a {
+  text-decoration: none;
+  color: #586D3F;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+  transition: color 0.5s ease;
+}
+
+.nav-email a:hover {
+  color: #A8A37E;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.contact-form button {
+  padding: 12px;
+  background: #586D3F;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.5s ease;
+}
+
+.contact-form button:hover {
+  background: #A8A37E;
+}
+
+.contact-wrapper {
+  display: flex;
+  align-items: flex-end; 
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.contact-left {
+  flex: 1;
+}
+
+.contact-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.contact-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25); /* zesvětlení */
+  pointer-events: none;
+}
+
+.contact-right img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  position: relative;
+  z-index: 0;
+}
+
+.footer {
+  background: #f0efe8;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 14px;
+  color: #7a7a5a;
+  border-top: 1px solid #e5e5dc;
+}
+
+.footer a {
+  color: #A8A37E;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #586D3F;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 20px;
+    border: 1px solid #eee;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+.hero-text {
+  margin-left: 0;
+}
+
+  .nav-email {
+  display: none;
+}
+
+.pillars-bg {
+  background: var(--light);
+}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+  
+  <div class="burger" onclick="toggleMenu()">☰</div>
+
+  <div class="menu" id="menu">
+    <a href="#uvod">Úvod</a>
+    <a href="#terapie">Terapie</a>
+    <a href="#omne">O mně</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+
+  <div class="nav-email">
+  <a href="mailto:jeanette.brychtova@gmail.com">✉ jeanette.brychtova@gmail.com</a>
+</div>
+</div>
+</nav>
+
+<section id="uvod" class="hero container">
+  <div class="hero-text">
+    <h1>Vydejte se na cestu zpět k sobě</h1>
+    <p class="hero-name">MUDr. Jeanette Brychtová</p>
+    <p class="hero-service">Psychoterapie a poradenství v Brně</p>
+    <a href="#kontakt" class="button">Domluvit si setkání</a>
+  </div>
+</section>
+
+<section id="terapie" class="alt">
+
+  <div class="container">
+    <h2>Co pro mě znamená psychoterapie</h2>
+
+    <p>
+Každý z nás si na životní cestě neseme svůj batoh plný břemen. Ať už je to tíha komplikovaných vztahů, životních úkolů a rolí, úzkosti, smutku, ztráty blízké osoby, životního smyslu...
+
+Každý máme batoh jinak velký, různě plný, a i naše síla ho nést se během života mění. Někdy už ani sami nevíme, co všechno v něm je a jaká stará svačina už tam pár let hnije.
+</p>
+
+<p>
+V psychoterapii můžete najít bezpečný prostor se do batohu podívat a nebýt na to sami. Vyndat ven na světlo to, co budete chtít nebo si nechat pomoct s tím, na co nemáte odvahu ani sáhnout.
+
+Zažít pocit, že jste v pořádku tak, jak přicházíte, se vším, co si nesete sebou. A obsah svého batohu začít postupně měnit.
+</p>
+  </div>
+
+  <div class="pillars-bg">
+    <div class="container">
+      <div class="pillars">
+
+        <div class="pillar">
+          <h3>Bezpečí</h3>
+          <p>
+Dobrá společná práce začíná Vaším pocitem bezpečí. Vše, co mi řeknete,<br>
+si nechám pro sebe. Budu držet pravidla naší spolupráce.
+</p>
+        </div>
+
+        <div class="pillar">
+          <h3>Vztah</h3>
+          <p>
+Náš život se děje v kulisách vztahů. V psychoterapii je to základní kámen<br>
+léčby. V něm se odehrává celý proces. Měl by být naším hlavním cílem.
+</p>
+        </div>
+
+        <div class="pillar">
+          <h3>Psychosomatika</h3>
+          <p>
+Tělo a duše se historicky oddělovaly. Dnes víme, že je to nesmysl. Tělo<br>
+bez duše nelze vyléčit, nefunguje to ani naopak.
+</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section id="omne">
+  <div class="container">
+    <h2>Má cesta k psychoterapii</h2>
+    <p>
+Vystudovala jsem všeobecné lékařství na Masarykově univerzitě v Brně. Během mého studia jsem se o prožívání nemocného člověka dozvěděla žalostně málo. Jakoby to, na co pacienti v rámci svého zdravotního stavu myslí ani nebylo důležité.
+</p>
+
+<p>
+V mé lékařské praxi to pak nebylo jiné. Snažila jsem se plnit práci internisty a zároveň vyslechnout obavy, myšlenky a frustraci mých pacientů. Léčila jsem je tak, jak mě učili. Ale ne všem to pomáhalo.
+
+Někteří se vraceli opakovaně, někteří se cítili mizerně, přestože všechny hodnoty a snímky mluvily o zdraví. To, co jsem se naučila najednou nestačilo. Léčení těla a přehlížení duše vedlo k neuspokojivým výsledkům.
+</p>
+
+<p>
+Rozhodla jsem se tedy doplnit ten velký dílek skládačky a obrátila své síly i do psychoterapie. Budu Vás ráda provázet na Vaší cestě k uzdravení, vděčná za to, že mě necháte nahlédnout do svého života a dál se tím učit.
+</p>
+  </div>
+<div class="about-credentials">
+  <div class="container">
+    
+    <div class="credentials-left">
+
+  <p><strong>Masarykova univerzita v Brně</strong><br>
+  Všeobecné lékařství</p>
+
+  <p><strong>Univerzita Palackého v Olomouci</strong><br>
+  Psychoterapeutický výcvik v integrativní psychoterapii se zaměřením na psychosomatiku</p>
+
+</div>
+
+    <div class="credentials-right">
+
+  <p><strong>Členka České lékařské komory</strong></p>
+  <p><strong>Členka České asociace pro psychoterapii</strong></p>
+
+  <div class="credentials-logos">
+  <img src="ceska-lekarska-komora.png" alt="Česká lékařská komora">
+  <img src="ceska-asociace-psychoterapie.png" alt="Česká asociace pro psychoterapii">
+</div>
+
+</div>
+
+  </div>
+</div>
+</section>
+
+<section class="quote-section">
+  <div class="quote-text">
+    <p class="quote-main">“Tisíc cest vede k jednomu cíli.”</p>
+    <p class="quote-author">Jules Verne</p>
+  </div>
+</section>
+
+<section class="alt info-section">
+  <div class="container">
+    <h2>Co je dobré vědět</h2>
+
+    <p>Setkání probíhají osobně v Brně. Terapie trvá 55 minut a stojí 1000 Kč.</p>
+
+    <p>Na první setkání se prosím objednejte e-mailem nebo přes kontaktní formulář níže.</p>
+
+    <p>Domluvený termín je závazný. Při pozdějším zrušení účtuji polovinu ceny.</p>
+
+  </div>
+</section>
+
+<section id="kontakt" class="contact">
+  <div class="container">
+
+    <div class="contact-wrapper">
+
+      <div class="contact-left">
+        <h2>První krok k setkání</h2>
+
+
+<p class="contact-text">
+  Pokud cítíte, že je čas něco změnit, napište mi na:
+</p>
+
+        <p class="contact-email">
+          <a href="mailto:jeanette.brychtova@gmail.com">
+            ✉ jeanette.brychtova@gmail.com
+          </a>
+        </p>
+
+        <p class="contact-text">
+          nebo využijte kontaktní formulář
+        </p>
+
+<p class="contact-text">
+  a potkáme se na adrese Myslbekova 29, 615 00 Brno
+</p>
+
+        <form class="contact-form">
+          <input type="text" name="name" placeholder="Vaše jméno" required>
+          <input type="tel" name="phone" placeholder="Váš telefon" required>
+          <input type="email" name="email" placeholder="Váš email" required>
+          <textarea name="message" rows="5" placeholder="Vaše zpráva" required></textarea>
+          <button type="submit">Odeslat zprávu</button>
+        </form>
+      </div>
+
+      <div class="contact-right">
+        <img src="terapie-Myslbekova-29-Brno-61500.JPG" alt="Jeanette Brychtová">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>
+      © 2026 MUDr. Jeanette Brychtová |
+      Myslbekova 29, 615 00 Brno |
+      Designed by <a href="https://www.zajait.cz" target="_blank">ZajaIT</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('menu').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>
