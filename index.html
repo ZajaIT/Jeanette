@@ -558,6 +558,22 @@ section {
   justify-content: flex-start;
   gap: 20px;
 }
+  .credentials-right {
+  position: relative;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.credentials-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 1px;
+  background: #586D3F;
+}
 }
 </style>
 </head>
