@@ -488,6 +488,9 @@ section {
   .mobile-break {
   display: none;
 }
+  .mobile-hide {
+  display: inline;
+}
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -621,6 +624,10 @@ section {
 
   .mobile-break {
   display: inline;
+}
+
+  .mobile-hide {
+  display: none;
 }
 }
 </style>
@@ -879,7 +886,7 @@ Rozhodla jsem se tedy doplnit ten velký dílek skládačky a obrátila své sí
     <p>© 2026 MUDr. Jeanette Brychtová</p>
 
 <p>
-  IČO: žádost podána<span class="mobile-break"><br></span>
+  IČO: žádost podána<span class="mobile-hide"> | </span><span class="mobile-break"><br></span>
   Sídlo: Havlíčkova 2314/106, 586 01 Jihlava
 </p>
     
