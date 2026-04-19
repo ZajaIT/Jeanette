@@ -678,10 +678,10 @@ Rozhodla jsem se tedy doplnit ten velký dílek skládačky a obrátila své sí
 </p>
 
         <form class="contact-form">
-          <input type="text" name="name" placeholder="Jméno" required>
-          <input type="tel" name="phone" placeholder="Telefon" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <textarea name="message" rows="5" placeholder="Napište mi" required></textarea>
+          <input type="text" id="name" name="name" placeholder="Jméno" required>
+          <input type="tel" id="phone" name="phone" placeholder="Telefon" required>
+          <input type="email" id="email" name="email" placeholder="Email" required>
+          <textarea id="message" name="message" rows="5" placeholder="Napište mi" required></textarea>
           <button type="submit">Odeslat zprávu</button>
         </form>
 
@@ -730,6 +730,33 @@ function toggleMenu() {
 window.onload = function() {
   window.scrollTo(0, 0);
 };
+
+  const nameInput = document.getElementById('name');
+const phoneInput = document.getElementById('phone');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+
+nameInput.oninvalid = () => {
+  nameInput.setCustomValidity('Zadejte prosím Vaše jméno');
+};
+
+phoneInput.oninvalid = () => {
+  phoneInput.setCustomValidity('Zadejte prosím Vaše číslo');
+};
+
+emailInput.oninvalid = () => {
+  emailInput.setCustomValidity('Vyplňte prosím Váš email');
+};
+
+messageInput.oninvalid = () => {
+  messageInput.setCustomValidity('Napište prosím Vaši zprávu');
+};
+
+nameInput.oninput = () => nameInput.setCustomValidity('');
+phoneInput.oninput = () => phoneInput.setCustomValidity('');
+emailInput.oninput = () => emailInput.setCustomValidity('');
+messageInput.oninput = () => messageInput.setCustomValidity('');
+  
 </script>
 
 </body>
