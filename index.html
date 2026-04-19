@@ -838,6 +838,41 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     this.submit();
   }
 });
+
+  const name = document.getElementById('name');
+const phone = document.getElementById('phone');
+const email = document.getElementById('email');
+const message = document.getElementById('message');
+
+const nameError = document.getElementById('name-error');
+const phoneError = document.getElementById('phone-error');
+const emailError = document.getElementById('email-error');
+const messageError = document.getElementById('message-error');
+
+// zmizí při psaní
+name.addEventListener('input', () => {
+  if (name.value.trim() !== '') {
+    nameError.style.display = 'none';
+  }
+});
+
+phone.addEventListener('input', () => {
+  if (phone.value.trim() !== '') {
+    phoneError.style.display = 'none';
+  }
+});
+
+email.addEventListener('input', () => {
+  if (email.value.trim() !== '') {
+    emailError.style.display = 'none';
+  }
+});
+
+message.addEventListener('input', () => {
+  if (message.value.trim() !== '') {
+    messageError.style.display = 'none';
+  }
+});
   
 </script>
 
