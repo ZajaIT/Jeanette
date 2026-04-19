@@ -844,8 +844,9 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
   }
 
   if (valid) {
-    this.submit();
-  }
+  this.reset();
+  this.submit();
+}
 });
 
   const name = document.getElementById('name');
