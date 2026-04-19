@@ -480,6 +480,23 @@ section {
   z-index: 10;
 }
 
+  .error::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 10px;
+  height: 10px;
+  
+  background: white;
+  border-left: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  
+  transform: translateY(-50%) rotate(45deg);
+}
+
 .error img {
   width: 14px;
   height: 14px;
@@ -706,9 +723,12 @@ Rozhodla jsem se tedy doplnit ten velký dílek skládačky a obrátila své sí
 
         <form class="contact-form" novalidate>
           <input type="text" id="name" name="name" placeholder="Jméno" required>
-          <div class="error" id="name-error">
-  <img src="heart.png" alt="">
-  <span>Zadejte prosím Vaše jméno</span>
+          <div class="field">
+  <input type="text" id="name" name="name" placeholder="Jméno">
+  <div class="error" id="name-error">
+    <img src="heart.png" alt="">
+    <span>Zadejte prosím Vaše jméno</span>
+  </div>
 </div>
           <input type="tel" id="phone" name="phone" placeholder="Telefon" required>
           <div class="error" id="phone-error">
