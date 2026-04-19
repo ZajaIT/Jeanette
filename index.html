@@ -794,6 +794,7 @@ emailInput.oninput = () => emailInput.setCustomValidity('');
 messageInput.oninput = () => messageInput.setCustomValidity('');
 
 document.querySelector('.contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
 
   let valid = true;
 
