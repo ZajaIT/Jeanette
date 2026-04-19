@@ -809,8 +809,10 @@ function toggleMenu() {
 
   if (menu.classList.contains('active')) {
     burger.textContent = '✕';
+    document.body.style.overflow = 'hidden';
   } else {
     burger.textContent = '☰';
+    document.body.style.overflow = '';
   }
 }
   function scrollToTop(e) {
