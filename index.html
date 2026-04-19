@@ -815,12 +815,14 @@ function toggleMenu() {
   menu.classList.toggle('active');
 
   if (menu.classList.contains('active')) {
-    burger.textContent = '✕';
-    document.body.style.overflow = 'hidden';
-  } else {
-    burger.textContent = '☰';
-    document.body.style.overflow = '';
-  }
+  burger.textContent = '✕';
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+} else {
+  burger.textContent = '☰';
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+}
 }
   function scrollToTop(e) {
   e.preventDefault();
