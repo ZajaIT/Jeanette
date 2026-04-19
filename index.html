@@ -696,13 +696,16 @@ Rozhodla jsem se tedy doplnit ten velký dílek skládačky a obrátila své sí
 </p>
 
         <form class="contact-form" novalidate action="https://formspree.io/f/mdayzbad" method="POST">
-          <div class="field">
-  <input type="text" id="name" name="name" placeholder="Jméno">
-  <div class="error" id="name-error">
-    <img src="heart.png" alt="">
-    <span>Zadejte prosím Vaše jméno</span>
+
+  <input type="hidden" name="_cc" value="jeanette.brychtova@gmail.com">
+
+  <div class="field">
+    <input type="text" id="name" name="name" placeholder="Jméno">
+    <div class="error" id="name-error">
+      <img src="heart.png" alt="">
+      <span>Zadejte prosím Vaše jméno</span>
+    </div>
   </div>
-</div>
           <input type="tel" id="phone" name="phone" placeholder="Telefon" required>
           <div class="error" id="phone-error">
   <img src="heart.png" alt="">
