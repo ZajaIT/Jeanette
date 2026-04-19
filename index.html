@@ -485,6 +485,10 @@ section {
   display: none;
 }
 
+  .mobile-break {
+  display: none;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .menu {
@@ -613,6 +617,10 @@ section {
   width: 100%;
   height: auto;
   border-radius: 6px;
+}
+
+  .mobile-break {
+  display: inline;
 }
 }
 </style>
@@ -780,7 +788,8 @@ Rozhodla jsem se tedy doplnit ten velký dílek skládačky a obrátila své sí
 
 
 <p class="contact-text">
-  Pokud cítíte, že je čas něco změnit, napište mi na:
+  Pokud cítíte, že je čas něco změnit,<br class="mobile-break">
+  napište mi na:
 </p>
 
         <p class="contact-email">
