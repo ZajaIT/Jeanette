@@ -875,8 +875,9 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
   })
   .then(response => {
     if (response.ok) {
-      document.getElementById('form-block').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
+      form.reset();
+      document.querySelector('.gdpr-text').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';;
     }
   })
   .catch(error => {
