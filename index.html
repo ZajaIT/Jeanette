@@ -695,39 +695,58 @@ Rozhodla jsem se tedy doplnit ten velký dílek skládačky a obrátila své sí
   </a>
 </p>
 
-        <form class="contact-form" novalidate action="https://formspree.io/f/mdayzbad" method="POST">
+        <div id="form-block">
 
-  <input type="hidden" name="_cc" value="jeanette.brychtova@gmail.com">
+  <form class="contact-form" novalidate action="https://formspree.io/f/mdayzbad" method="POST">
 
-  <div class="field">
-    <input type="text" id="name" name="name" placeholder="Jméno">
-    <div class="error" id="name-error">
-      <img src="heart.png" alt="">
-      <span>Zadejte prosím Vaše jméno</span>
+    <input type="hidden" name="_cc" value="jeji@email.cz">
+
+    <div class="field">
+      <input type="text" id="name" name="name" placeholder="Jméno">
+      <div class="error" id="name-error">
+        <img src="heart.png" alt="">
+        <span>Zadejte prosím Vaše jméno</span>
+      </div>
     </div>
-  </div>
-          <input type="tel" id="phone" name="phone" placeholder="Telefon" required>
-          <div class="error" id="phone-error">
-  <img src="heart.png" alt="">
-  <span>Zadejte prosím Vaše číslo</span>
-</div>
-          <input type="email" id="email" name="email" placeholder="Email" required>
-          <div class="error" id="email-error">
-  <img src="heart.png" alt="">
-  <span>Vyplňte prosím Váš email</span>
-</div>
-          <textarea id="message" name="message" rows="5" placeholder="Napište mi" required></textarea>
-          <div class="error" id="message-error">
-  <img src="heart.png" alt="">
-  <span>Napište prosím Vaši zprávu</span>
-</div>
-          <button type="submit">Odeslat zprávu</button>
-        </form>
 
-        <p class="gdpr-text">
-  Odesláním souhlasíte se 
-  <a href="gdpr.html" target="_blank" rel="noopener">zásadami ochrany osobních údajů</a>.
-</p>
+    <div class="field">
+      <input type="tel" id="phone" name="phone" placeholder="Telefon">
+      <div class="error" id="phone-error">
+        <img src="heart.png" alt="">
+        <span>Zadejte prosím Vaše číslo</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <input type="email" id="email" name="email" placeholder="Email">
+      <div class="error" id="email-error">
+        <img src="heart.png" alt="">
+        <span>Vyplňte prosím Váš email</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <textarea id="message" name="message" rows="5" placeholder="Napište mi"></textarea>
+      <div class="error" id="message-error">
+        <img src="heart.png" alt="">
+        <span>Napište prosím Vaši zprávu</span>
+      </div>
+    </div>
+
+    <button type="submit">Odeslat zprávu</button>
+
+  </form>
+
+  <p class="gdpr-text">
+    Odesláním souhlasíte se 
+    <a href="gdpr.html" target="_blank" rel="noopener">zásadami ochrany osobních údajů</a>.
+  </p>
+
+</div>
+
+<div id="form-success" style="display:none; color:#586D3F; margin-top:20px;">
+  Vaše zpráva byla v pořádku odeslána. Ozvu se Vám co nejdříve.
+</div>
       
       </div>
 
@@ -844,8 +863,25 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
   }
 
   if (valid) {
-  this.reset();
-  this.submit();
+  const form = this;
+  const data = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      document.getElementById('form-block').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+  })
+  .catch(error => {
+    console.log(error);
+  });
 }
 });
 
