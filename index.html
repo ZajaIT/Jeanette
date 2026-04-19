@@ -698,8 +698,20 @@ Rozhodla jsem se tedy doplnit ten velký dílek skládačky a obrátila své sí
   <span>Zadejte prosím Vaše jméno</span>
 </div>
           <input type="tel" id="phone" name="phone" placeholder="Telefon" required>
+          <div class="error" id="phone-error">
+  <img src="error.png" alt="">
+  <span>Zadejte prosím Vaše číslo</span>
+</div>
           <input type="email" id="email" name="email" placeholder="Email" required>
+          <div class="error" id="email-error">
+  <img src="error.png" alt="">
+  <span>Vyplňte prosím Váš email</span>
+</div>
           <textarea id="message" name="message" rows="5" placeholder="Napište mi" required></textarea>
+          <div class="error" id="message-error">
+  <img src="error.png" alt="">
+  <span>Napište prosím Vaši zprávu</span>
+</div>
           <button type="submit">Odeslat zprávu</button>
         </form>
 
@@ -775,19 +787,51 @@ phoneInput.oninput = () => phoneInput.setCustomValidity('');
 emailInput.oninput = () => emailInput.setCustomValidity('');
 messageInput.oninput = () => messageInput.setCustomValidity('');
 
-  document.querySelector('.contact-form').addEventListener('submit', function(e) {
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
 
   let valid = true;
 
   const name = document.getElementById('name');
-  const nameError = document.getElementById('name-error');
+  const phone = document.getElementById('phone');
+  const email = document.getElementById('email');
+  const message = document.getElementById('message');
 
+  const nameError = document.getElementById('name-error');
+  const phoneError = document.getElementById('phone-error');
+  const emailError = document.getElementById('email-error');
+  const messageError = document.getElementById('message-error');
+
+  // Jméno
   if (name.value.trim() === '') {
     nameError.style.display = 'flex';
     valid = false;
   } else {
     nameError.style.display = 'none';
+  }
+
+  // Telefon
+  if (phone.value.trim() === '') {
+    phoneError.style.display = 'flex';
+    valid = false;
+  } else {
+    phoneError.style.display = 'none';
+  }
+
+  // Email
+  if (email.value.trim() === '') {
+    emailError.style.display = 'flex';
+    valid = false;
+  } else {
+    emailError.style.display = 'none';
+  }
+
+  // Zpráva
+  if (message.value.trim() === '') {
+    messageError.style.display = 'flex';
+    valid = false;
+  } else {
+    messageError.style.display = 'none';
   }
 
   if (valid) {
