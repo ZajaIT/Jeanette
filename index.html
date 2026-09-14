@@ -519,6 +519,27 @@ section {
   background: #7a7a5a;
   margin: 20px auto;
 }
+  .availability-banner {
+  position: absolute;
+  top: 61px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+
+  width: 100%;
+  padding: 9px 20px;
+
+  background: rgba(88, 109, 63, 0.92);
+  color: white;
+
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+
+  pointer-events: none;
+}
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -657,6 +678,14 @@ section {
   .mobile-hide {
   display: none;
 }
+  .availability-banner {
+  position: fixed;
+  top: 60px;
+  padding: 8px 15px;
+  font-size: 13px;
+  line-height: 1.4;
+  z-index: 999;
+}
 }
 </style>
 </head>
@@ -682,6 +711,10 @@ section {
 </div>
 </div>
 </nav>
+
+  <div class="availability-banner">
+  Aktuálně nepřijímám nové klienty.
+</div>
 
 <section id="uvod" class="hero container">
   <div class="hero-text">
